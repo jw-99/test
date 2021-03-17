@@ -44,6 +44,10 @@ MAE는 실제값과 예측값 차이 절대값의 평균으로 계산됩니다. 
 ![image](https://user-images.githubusercontent.com/80579716/111457674-dc233280-875b-11eb-8be6-70661150c635.png)
 위 그림에서 실제값이 1인 경우 왼쪽으로 갈 수록 loss가 증가하여 잘못된 예측을 처벌한다 할 수 있으며 잘못된 예측을 확신할 경우 loss가 빠르게 증가하여 더 큰 불이익을 받게 됩니다.
 
+### Categoricla cross entropy
+
+> $$ CCE(p,t) = -\sum_{c=1}^C(t_{o,c}log(p,c))$$
+
 ### Reference
 
 https://machinelearningmastery.com/how-to-choose-loss-functions-when-training-deep-learning-neural-networks/
