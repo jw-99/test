@@ -21,9 +21,7 @@ loss function은 regression 과 classification 두 가지 유형으로 구분할
 
 > $$ MSE = {1 \over n}\sum_{i=1}^N(Y_i - \hat(Y)_i)$$
 
-회귀 손실에 사용되는 가장 기본적인 함수입니다. MSE는 실제값과 예측값 사이 오차 제곱의 평균으로 계산됩니다. 제곱을 했기 때문에 오차가 클 수록 더 큰 패널티가 부여됩니다. 이런 이유로 이상치에 큰 영향을 받습니다.
-
-![image](https://user-images.githubusercontent.com/80579716/111454070-96fd0180-8757-11eb-94d7-0a5958a2cbea.png)
+회귀 손실에 사용되는 기본적인 함수입니다. MSE는 실제값과 예측값 사이 오차 제곱의 평균으로 계산됩니다. 제곱을 했기 때문에 오차가 클 수록 더 큰 패널티가 부여됩니다. 이런 이유로 이상치에 큰 영향을 받습니다.
 
 
 ### MAE(Mean Absolute Error)
@@ -33,16 +31,18 @@ loss function은 regression 과 classification 두 가지 유형으로 구분할
 MAE는 실제값과 예측값 차이 절대값의 평균으로 계산됩니다. MAE는 이상치가 있는 문제에서 적절히 사용될 수 있습니다.
 
 
-### hinge
 
 
 
 ## Classification loss function
 
-cross entropy
+### Binary cross entropy
 
-다진분류
+> $$ BCE(t,p) = -(t * log(p) + (1-t) * log(1-p))$$
 
+신경망에서 가장 자주 사용되는 loss function이 binary cross entropy 입니다. 이진분류에 대한 손실함수이며 sigmoid와 같이 신경망의 출력값이 0과 1일 때 사용됩니다.
+![image](https://user-images.githubusercontent.com/80579716/111457674-dc233280-875b-11eb-8be6-70661150c635.png)
+위 그림에서 실제값이 1인 경우 왼쪽으로 갈 수록 loss가 증가하여 잘못된 예측을 처벌한다 할 수 있으며 잘못된 예측을 확신할 경우 loss가 빠르게 증가하여 더 큰 불이익을 받게 됩니다.
 
 ### Reference
 
