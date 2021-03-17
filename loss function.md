@@ -17,14 +17,15 @@ loss function은 regression 과 classification 두 가지 유형으로 구분할
 
 ## Regression loss function
 
-### MSE
+### MSE(Mean Squeared Error)
 
 회귀 손실에 사용되는 가장 기본적인 함수입니다. MSE는 실제값과 예측값 사이 오차 제곱의 평균으로 계산됩니다. 제곱을 했기 때문에 오차가 클 수록 더 큰 패널티가 부여됩니다. 이런 이유로 이상치에 큰 영향을 받습니다.
 
 
 
-### MSE
+### MAE(Mean Absolute Error)
 
+MAE는 실제값과 예측값 차이 절대값의 평균으로 계산됩니다. MAE는 이상치가 있는 문제에서 적절히 사용될 수 있습니다.
 
 
 ### hinge
