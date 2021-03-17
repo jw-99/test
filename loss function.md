@@ -13,8 +13,7 @@ author : Jeongwon jo # 본인 프로필 이름을 입력해주세요
 
 딥러닝 모델은 확률적 경사하강법과 최적화 알고리즘으로 학습합니다. 최적화 알고리즘으로 모델의 현 상태에 대한 오류를 추정하여 손실을 줄이는 방향으로 가중치를 업데이트 합니다. 모델의 오류를 추정하기 위해 사용하는 함수가 loss function입니다.
 
-loss function은 regression 과 classification 두 가지 유형으로 구분할 수 있습니다.
-
+loss function은 regression 과 classification 두 가지 유형으로 구분할 수 있습니다. 회귀는 연속적인 값을을 예측할 때 사용합니다. 분류는 불연속적인 클래스를 분류하기 위해 사용하며 각 클래스에 확률값이 부여됩니다.
 
 ## Regression loss function
 
