@@ -19,12 +19,16 @@ loss function은 regression 과 classification 두 가지 유형으로 구분할
 
 ### MSE(Mean Squeared Error)
 
-> $ MSE = \sum_{i=1}^N(Y_i - \hat(Y_i))$
+> $$ MSE = {1 \over n}\sum_{i=1}^N(Y_i - \hat(Y)_i)$$
 
-회귀 손실에 사용되는 가장 기본적인 함수입니다. MSE는 실제값과 예측값 사이 오차 제곱의 평균으로 계산됩니다. 제곱을 했기 때문에 오차가 클 수록 더 큰 패널티가 부여됩니다. 이런 이유로 이상치에 큰 영향을 받습니다.ㅡ
+회귀 손실에 사용되는 가장 기본적인 함수입니다. MSE는 실제값과 예측값 사이 오차 제곱의 평균으로 계산됩니다. 제곱을 했기 때문에 오차가 클 수록 더 큰 패널티가 부여됩니다. 이런 이유로 이상치에 큰 영향을 받습니다.
+
+![image](https://user-images.githubusercontent.com/80579716/111454070-96fd0180-8757-11eb-94d7-0a5958a2cbea.png)
 
 
 ### MAE(Mean Absolute Error)
+
+> $$ MAE = { \sum_{i=1}^N(|y_i - x_i|)\over n} = {\sum_{i=1}^N|e_i|}$$
 
 MAE는 실제값과 예측값 차이 절대값의 평균으로 계산됩니다. MAE는 이상치가 있는 문제에서 적절히 사용될 수 있습니다.
 
