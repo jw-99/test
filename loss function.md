@@ -13,26 +13,37 @@ author : Jeongwon jo # 본인 프로필 이름을 입력해주세요
 
 딥러닝 모델은 확률적 경사하강법과 최적화 알고리즘으로 학습합니다. 최적화 알고리즘으로 모델의 현 상태에 대한 오류를 추정하여 손실을 줄이는 방향으로 가중치를 업데이트 합니다. 모델의 오류를 추정하기 위해 사용하는 함수가 loss function입니다.
 
-loss function은 regression 과 classification 두 가지 유형으로 구분할 수 있습니다. regression은 연속적인 값을을 예측할 때 사용합니다. classification은 불연속적인 클래스를 분류하기 위해 사용하며 각 클래스에 확률값이 부여됩니다.
+loss function은 회귀와 분류 두 가지 유형으로 구분할 수 있습니다. 회귀 손실은 연속적인 값을을 예측할 때 사용합니다. 분류 손실은 불연속적인 클래스를 분류하기 위해 사용하며 각 클래스에 확률값이 부여됩니다.
 
 ## Regression loss function
 
-### MSE(Mean Squeared Error)
+### MSE(Mean Squared Error)
 
 > $$ MSE = {1 \over n}\sum_{i=1}^N(Y_i - \hat(Y)_i)$$
 
 회귀 손실에 사용되는 기본적인 함수입니다. MSE는 실제값과 예측값 사이 오차 제곱의 평균으로 계산됩니다. 제곱을 했기 때문에 오차가 클 수록 더 큰 패널티가 부여됩니다. 이런 이유로 이상치에 큰 영향을 받습니다.
 
+### RMSE(Root Mean Squared Error)
+> $$RMSE(\hat(\theta)) = \sqrt(mse(\hat(\theta)))
+
+RMSE는 MSE에 루트를 씌운 것입니다. 원래 타겟에 대해 더 나은 직관을 제공합니다.
 
 ### MAE(Mean Absolute Error)
 
-> $$ MAE = { \sum_{i=1}^N(|y_i - x_i|)\over n} = {\sum_{i=1}^N|e_i|}$$
+> $$MAE = { \sum_ {i=1}^N(|y_i - x_i|)\over n} = {\sum_{i=1}^N|e_i|}$$
 
-MAE는 실제값과 예측값 차이 절대값의 평균으로 계산됩니다. MAE는 이상치가 있는 문제에서 적절히 사용될 수 있습니다.
+MAE는 실제값과 예측값 차이 절대값의 평균으로 계산됩니다. MAE는 이상치가 있는 문제에서 적절히 사용될 수 있습니다. 하지만 최적화에서 MAE를 사용하면 기울기가 계속해서 커지게 됩니다. 이것은 loss가 작을 때도 발생하므로 학습에 문제가 발생합니다.
 
+### Huber loss
+> $$Huber loss(t,p) = \begin{cases} {1 \over n}(t - p)^2, & \mbox{when}|t - p| \leqq δ \\ δ|t - p| - {δ^2 \over 2}, \mbox{otherwise} \end{cases}$$
 
+Huber loss는 loss가 클 때는 MAE를 취해 이상치에 민감한 MSE의 단점을 극복하고 loss가 작을 때는 MSE를 취해 미분이 가능하게 합니다.
 
+![image](https://user-images.githubusercontent.com/80579716/111460794-be57cc80-875f-11eb-9626-ccc3a721b751.png)
 
+위 그림에서 작은 δ일 때는 기울기가 평평하고 δ가 클 수록 기울기가 증가합니다. 
+
+> Huber loss는 δ ~ 0일 때 MAE에 다가가고, δ ~ ∞ 일 때 MSE에 다가갑니다.
 
 ## Classification loss function
 
@@ -50,5 +61,4 @@ MAE는 실제값과 예측값 차이 절대값의 평균으로 계산됩니다. 
 
 ### Reference
 
-https://machinelearningmastery.com/how-to-choose-loss-functions-when-training-deep-learning-neural-networks/
 https://www.machinecurve.com/index.php/2019/10/04/about-loss-and-loss-functions/
