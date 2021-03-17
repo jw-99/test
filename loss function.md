@@ -9,9 +9,24 @@ use_math: true # 건드리지 마세요
 author : Jeongwon jo # 본인 프로필 이름을 입력해주세요
 ---
 
-# Loss
+# intro
 
-loss
+머신러닝 모델은 확률적 경사하강법과 최적화 알고리즘으로 학습합니다. 
 
 
 # Loss function
+
+
+## 회귀
+
+MAE
+
+MSE
+
+hinge
+
+## 분류
+
+cross entropy
+
+다진분류
