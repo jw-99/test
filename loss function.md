@@ -19,8 +19,9 @@ loss function은 regression 과 classification 두 가지 유형으로 구분할
 
 ### MSE(Mean Squeared Error)
 
-회귀 손실에 사용되는 가장 기본적인 함수입니다. MSE는 실제값과 예측값 사이 오차 제곱의 평균으로 계산됩니다. 제곱을 했기 때문에 오차가 클 수록 더 큰 패널티가 부여됩니다. 이런 이유로 이상치에 큰 영향을 받습니다.
+> $ MSE = \sum_{i=1}^N(Y_i - \hat(Y_i))$
 
+회귀 손실에 사용되는 가장 기본적인 함수입니다. MSE는 실제값과 예측값 사이 오차 제곱의 평균으로 계산됩니다. 제곱을 했기 때문에 오차가 클 수록 더 큰 패널티가 부여됩니다. 이런 이유로 이상치에 큰 영향을 받습니다.ㅡ
 
 
 ### MAE(Mean Absolute Error)
@@ -42,3 +43,4 @@ cross entropy
 ### Reference
 
 https://machinelearningmastery.com/how-to-choose-loss-functions-when-training-deep-learning-neural-networks/
+https://www.machinecurve.com/index.php/2019/10/04/about-loss-and-loss-functions/
