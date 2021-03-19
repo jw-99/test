@@ -32,7 +32,7 @@ RMSE는 MSE에 루트를 씌운 것입니다. 원래 타겟에 대해 더 나은
 
 > $$MAE = { \sum_ {i=1}^N(|y_i - x_i|)\over n} = {\sum_{i=1}^N|e_i|}$$
 
-MAE는 실제값과 예측값 차이 절대값의 평균으로 계산됩니다. MAE는 이상치가 있는 문제에서 적절히 사용될 수 있습니다. 하지만 최적화에서 MAE를 사용하면 기울기가 계속해서 커지게 됩니다. 이것은 loss가 작을 때도 발생하므로 학습에 문제가 발생합니다.
+MAE는 실제값과 예측값 차이 절대값의 평균으로 계산됩니다. MAE는 이상치가 있는 문제에서 적절히 사용될 수 있습니다. 하지만 최적화에서 MAE를 사용하면 기울기가 계속해서 커지게 됩니다. 이것은 loss가 작을 때도 발생하므로 학습에 문제가 발생합니다. 또한 MAE는 미분이 어렵다는 점이 존재합니다.
 
 ### Huber loss
 > $$Huber loss(t,p) = \begin{cases} {1 \over n}(t - p)^2, & \mbox{when}|t - p| \leqq δ \\ δ|t - p| - {δ^2 \over 2}, \mbox{otherwise} \end{cases}$$
@@ -41,7 +41,11 @@ Huber loss는 loss가 클 때는 MAE를 취해 이상치에 민감한 MSE의 단
 
 ![image](https://user-images.githubusercontent.com/80579716/111460794-be57cc80-875f-11eb-9626-ccc3a721b751.png)
 
-위 그림에서 작은 δ일 때는 기울기가 평평하고 δ가 클 수록 기울기가 증가합니다. 
+위 그림에서 작은 δ일 때는 기울기가 평평합니다. 이는 손실이 커질 때까지 꽤 시간이 걸립니다.
+작은 δ는 이상치에 둔감해질 수 있지만 평균 오류가 작을 때는 좋지 않습니다.
+
+δ가 클 수록 기울기가 증가합니다. 이 기울기는 최대로 수렴하는 경향이 있습니다.
+작은 δ는 이상치에 민감하여 평균 오류가 작을 때는 괜찮지만 이상치가 있을 때는 문제가 발생합니다.
 
 > Huber loss는 δ ~ 0일 때 MAE에 다가가고, δ ~ ∞ 일 때 MSE에 다가갑니다.
 
@@ -59,6 +63,9 @@ Huber loss는 loss가 클 때는 MAE를 취해 이상치에 민감한 MSE의 단
 
 > $$ CCE(p,t) = -\sum_{c=1}^C(t_{o,c}log(p,c))$$
 
+출력의 클래스가 2이상인 다중클래스 문제에 사용하는 손실함수입니다.
+
 ### Reference
 
+https://machinelearningmastery.com/how-to-choose-loss-functions-when-training-deep-learning-neural-networks/
 https://www.machinecurve.com/index.php/2019/10/04/about-loss-and-loss-functions/
